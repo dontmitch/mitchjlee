@@ -1,0 +1,77 @@
+html{
+    font-size:18px;
+    line-height:1.5625;
+    height:100%;
+}
+body{
+    margin:0;
+    padding:0;
+    background:#fff;
+    color:#1a1a1a;
+    font-family:'Lato',sans-serif;
+    font-size:1rem;
+    line-height:1.5625
+    min-height:100%;
+    position:relative;
+    font-weight: 300;
+}
+h1,h2,h3{
+    font-weight:700;
+    color:#1a1a1a;
+    margin:1.5625rem 0;
+}
+a{
+    font-weight:700;
+    color:#1a1a1a;
+    text-decoration:underline;
+}
+.badge-frame{
+    margin:0 auto;
+    border-radius:2.1875rem;
+    width:4.375rem;
+    height:4.375rem;
+    overflow:hidden
+}
+.badge-frame img{
+    position:relative;
+    width:4.375rem
+}
+main.home{
+    text-align:center;
+    padding:0.625rem
+}
+main.home article{
+    max-width:34.375rem
+}
+main.home article .badge-frame{
+    margin-top:3.125rem;
+    border-radius:4.6875rem;
+    width:9.375rem;
+    height:9.375rem;
+    overflow:hidden
+}
+main.home article .badge-frame img{
+    width:9.375rem
+}
+main.home article h1{
+    font-size:1.5rem;
+    line-height:1.0416666667
+}
+main.home article p{
+    text-align:center;
+    font-size:.9375rem;
+    line-height:1.6666666667;
+}
+article{
+    max-width:43.75rem;
+    margin:0 auto;
+    padding:0 1.5625rem
+}
+@media (min-width: 1024px){
+    html{
+        font-size:19px
+    }
+    html.home{
+        font-size:22px
+    }
+}
