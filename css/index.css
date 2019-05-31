@@ -1,106 +1,143 @@
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 300;
-    font-display: fallback;
-    src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+/*******************************************************************************
+MeyerWeb Reset
+*******************************************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin:  0;
+  padding:  0;
+  border:  0;
+  font:  inherit;
+  vertical-align:  baseline;
 }
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 300;
-    font-display: fallback;
-    src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display:  block;
 }
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-display: fallback;
-    src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+
+ol, ul {
+  list-style:  none;
 }
-@font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-display: fallback;
-    src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+table {
+  border-collapse:  collapse;
+  border-spacing:  0;
 }
+
+/*******************************************************************************
+Fonts
+*******************************************************************************/
+
+/* latin-ext */
+@font-face {
+  font-family:  'Lato';
+  font-style:  normal;
+  font-weight:  300;
+  font-display:  fallback;
+  src:  local('Lato Light'), local('Lato-Light'), url(https: //fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range:  U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family:  'Lato';
+  font-style:  normal;
+  font-weight:  300;
+  font-display:  fallback;
+  src:  local('Lato Light'), local('Lato-Light'), url(https: //fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range:  U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family:  'Lato';
+  font-style:  normal;
+  font-weight:  700;
+  font-display:  fallback;
+  src:  local('Lato Bold'), local('Lato-Bold'), url(https: //fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range:  U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family:  'Lato';
+  font-style:  normal;
+  font-weight:  700;
+  font-display:  fallback;
+  src:  local('Lato Bold'), local('Lato-Bold'), url(https: //fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range:  U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*******************************************************************************
+Generic Styles
+*******************************************************************************/
+
 html {
-    font-size:18px;
-    line-height:1.5625;
-    height:100%;
+  font-size: 20px;
+  line-height: 1.5625;
+  overflow-y: overlay;
 }
 body {
-    margin:0;
-    padding:0;
-    background:#fff;
-    color:#1a1a1a;
-    font-family:'Lato',sans-serif;
-    font-size:1rem;
-    line-height:1.5625
-    min-height:100%;
-    position:relative;
-    font-weight: 300;
+  color: #1a1a1a;
+  background: #fff;
+  font-family: 'Lato',sans-serif;
+  font-size: 1rem;
+  line-height: 1.66;
+  font-weight: 300;
 }
 h1,h2,h3 {
-    font-weight:700;
-    color:#1a1a1a;
-    margin:1.5625rem 0;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 1.5625rem 0;
+}
+a, em {
+  font-weight: 700;
+  color: #1a1a1a;
 }
 a {
-    font-weight:700;
-    color:#1a1a1a;
-    text-decoration:underline;
+  text-decoration: underline;
 }
-.badge-frame {
-    margin:0 auto;
-    border-radius:2.1875rem;
-    width:4.375rem;
-    height:4.375rem;
-    overflow:hidden
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 }
-.badge-frame img {
-    position:relative;
-    width:4.375rem
+header {
+  max-width: 720px;
+  margin: 0 auto;
 }
-main.home {
-    text-align:center;
-    padding:0.625rem
+header h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem auto;
 }
-main.home article {
-    max-width:34.375rem
+header p {
+  padding: 0 1.25rem 1.5rem;
+  text-align: center;
 }
-main.home article .badge-frame {
-    margin-top:3.125rem;
-    border-radius:4.6875rem;
-    width:9.375rem;
-    height:9.375rem;
-    overflow:hidden
+.image-wrap {
+  margin: 1rem auto 0;
+  border-radius: 4.6875rem;
+  width: 9.375rem;
+  height: 9.375rem;
+  overflow: hidden;
 }
-main.home article .badge-frame img {
-    width:9.375rem
+.image-wrap img {
+  width: 9.375rem;
 }
-main.home article h1 {
-    font-size:1.5rem;
-    line-height:1.0416666667
-}
-main.home article p {
-    text-align:center;
-    font-size:.9375rem;
-    line-height:1.6666666667;
-}
-article {
-    max-width:43.75rem;
-    margin:0 auto;
-    padding:0 1.5625rem
-}
-@media (min-width: 1024px) {
-    html {
-        font-size:22px
-    }
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 22px;
+  }
 }
