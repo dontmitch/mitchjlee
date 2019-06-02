@@ -88,7 +88,7 @@ html {
   overflow-y: overlay;
 }
 body {
-  color: #1a1a1a;
+  color: #333;
   background: #fff;
   font-family: 'Lato',sans-serif;
   font-size: 1rem;
@@ -114,7 +114,7 @@ main {
   justify-content: center;
 }
 header {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
 }
 header h1 {
