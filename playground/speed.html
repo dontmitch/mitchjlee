@@ -2,18 +2,19 @@
 layout: null
 permalink: /playground/speed
 ---
-<!-- Version 5d0c684 -->
+<!-- Version 4e00caa -->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Speedometer</title>
-    <style>body{display:flex;align-items:center;justify-content:center;height:100vh}body h1{text-align:center;font-size:72px}</style>
+    <style>bodybody{display:flex;align-items:center;justify-content:center;flex-direction:column;height:100vh}body h1{text-align:center;font-size:72px}body div{display:block}</style>
   </head>
   <body>
-    <h1 id="currentSpeed">N/A</h1>
+    <h1 id="currentSpeed">Speed computing...</h1>
+    <div id="notice"></div>
     <script>
-      const R=6371,numToRad=e=>e*Math.PI/180,kmToMi=e=>.621371*e,msToHr=e=>e/36e5,distanceBetweenCoords=(e,o,t,n)=>{const i=numToRad(t-e),a=numToRad(n-o),s=Math.sin(i/2)*Math.sin(i/2)+Math.cos(numToRad(e))*Math.cos(numToRad(t))*Math.sin(a/2)*Math.sin(a/2),r=2*Math.atan2(Math.sqrt(s),Math.sqrt(1-s));return R*r},computeSpeedFromPositions=(e,o)=>{const t=distanceBetweenCoords(e.coords.latitude,e.coords.longitude,o.coords.latitude,o.coords.longitude),n=o.timestamp-e.timestamp;return n>0?kmToMi(t)/msToHr(n):0},currentSpeedEl=document.getElementById("currentSpeed");let lastPosition;const updateCurrentSpeed=e=>{if(lastPosition){const o=computeSpeedFromPositions(lastPosition,e);lastPosition=e,currentSpeedEl.innerHTML=`${o.toFixed(2)} MPH`}else lastPosition=e};navigator.geolocation?navigator.geolocation.watchPosition(updateCurrentSpeed,e=>{let o;switch(e.code){case 1:o="Location permissions were denied.";break;case 2:o="Your device was unable to provide position data.";break;case 3:o="Position data timed out.";break;default:o=`Error occured. Error code: ${e.code}`}currentSpeedEl.innerHTML=o},{enableHighAccuracy:!0,timeout:5e3,maximumAge:0}):currentSpeedEl.innerHTML="This browser does not support geolocation.";
+      const R=6371,SPEED_CALCULATION_MODES={simple:{calculateSpeed:e=>{const o=e[0],t=e[1];return computeSpeedFromPositions(t,o)},numPositionsNeeded:2},spread:{calculateSpeed:e=>{const o=e[0],t=e[e.length-1];return computeSpeedFromPositions(t,o)},numPositionsNeeded:4},averages:{calculateSpeed:e=>{const o=e.slice(0,this.numPositionsNeeded/2),t=e.slice(this.numPositionsNeeded/2),a={coords:{latitude:avg(o.map(e=>e.coords.latitude)),longitude:avg(o.map(e=>e.coords.longitude))},timestamp:avg(o.map(e=>e.timestamp))},n={coords:{latitude:avg(t.map(e=>e.coords.latitude)),longitude:avg(t.map(e=>e.coords.longitude))},timestamp:avg(t.map(e=>e.timestamp))};return computeSpeedFromPositions(n,a)},numPositionsNeeded:6}},GEOLOCATION_OPTIONS={enableHighAccuracy:!0,timeout:5e3,maximumAge:0},numToRad=e=>e*Math.PI/180,kmToMi=e=>.621371*e,msToHr=e=>e/36e5,avg=e=>e.reduce((e,o)=>e+o,0)/e.length,distanceBetweenCoords=(e,o,t,a)=>{const n=numToRad(t-e),i=numToRad(a-o),s=Math.sin(n/2)*Math.sin(n/2)+Math.cos(numToRad(e))*Math.cos(numToRad(t))*Math.sin(i/2)*Math.sin(i/2),d=2*Math.atan2(Math.sqrt(s),Math.sqrt(1-s));return R*d},computeSpeedFromPositions=(e,o)=>{const t=distanceBetweenCoords(e.coords.latitude,e.coords.longitude,o.coords.latitude,o.coords.longitude),a=o.timestamp-e.timestamp;return a>0?kmToMi(t)/msToHr(a):0},currentSpeedEl=document.getElementById("currentSpeed"),noticeEl=document.getElementById("notice"),urlCalculationMode=new URLSearchParams(window.location.search).get("mode"),speedCalculationMode=urlCalculationMode&&Object.keys(SPEED_CALCULATION_MODES).includes(urlCalculationMode)?urlCalculationMode:"simple",trailingLocations=[],updateCurrentSpeed=e=>{noticeEl.innerHTML=`Calculating speed using <b>${speedCalculationMode}</b> mode.`;const o=SPEED_CALCULATION_MODES[speedCalculationMode],t=o.numPositionsNeeded;if(trailingLocations.unshift(e),trailingLocations.length===t){const e=o.calculateSpeed(trailingLocations);currentSpeedEl.innerHTML=`${e.toFixed(2)} MPH`,trailingLocations.pop()}},handleErrors=e=>{let o;switch(e.code){case 1:o="Location permissions were denied.";break;case 2:o="Your device was unable to provide position data.";break;case 3:o="Position data timed out.";break;default:o=`Error occured. Error code: ${e.code}`}currentSpeedEl.innerHTML=o};navigator.geolocation?navigator.geolocation.watchPosition(updateCurrentSpeed,handleErrors,GEOLOCATION_OPTIONS):currentSpeedEl.innerHTML="This browser does not support geolocation.";
     </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
